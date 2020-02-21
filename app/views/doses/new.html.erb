@@ -2,7 +2,7 @@
   <h2>Add Doses</h2>
   <%= simple_form_for [@cocktail, @dose] do |f| %>
     <%= f.input :description %>
-    <%= f.input :ingredient, collection: @ingredients, class: 'select2' %>
+    <%= f.input :ingredient, collection: @ingredients, input_html: { class: 'fancy-select' } %>
     <%= f.submit "Submit Dose", class: 'btn btn-primary' %>
   <% end %>
 </div>

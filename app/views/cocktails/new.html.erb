@@ -1,11 +1,13 @@
-<h1>New Juice Recipe</h1>
+<div class="container form-card shadow rounded p-3 my-3">
+  <h1>New Juice Recipe</h1>
 
-<%= simple_form_for @cocktail do |f| %>
-  <%= f.input :name %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit "Create Juice", class: "btn btn-primary" %>
-<% end %>
+  <%= simple_form_for @cocktail do |f| %>
+    <%= f.input :name %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit "Create Juice", class: "btn btn-success" %>
+  <% end %>
 
-<%= link_to cocktails_path do %>
-<%= icon('fa', 'undo') %> Back to All Juices
-<% end %>
+  <%= link_to cocktails_path do %>
+  <%= icon('fa', 'undo') %> Back to All Juices
+  <% end %>
+</div>
