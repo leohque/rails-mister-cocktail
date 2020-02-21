@@ -1,5 +1,8 @@
 <% @cocktails.each do |cocktail| %>
-  <p><%= link_to cocktail.name, cocktail_path(cocktail) %></p>
+  <% if cocktail.photo.attached? %>
+    <p><%= cl_image_tag cocktail.photo.key, height: 300, crop: :fit %>
+  <% end %>
+  <%= link_to cocktail.name, cocktail_path(cocktail) %></p>
 <% end %>
 
 <%= link_to "New Cocktail", new_cocktail_path, class: 'btn btn-primary' %>

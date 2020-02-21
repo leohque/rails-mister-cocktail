@@ -65,3 +65,9 @@ gem 'simple_form'
 
 # Security
 gem 'dotenv-rails', groups: [:development, :test]
+
+# Cloudinary Media
+gem 'cloudinary', '~> 1.12.0'
+
+# Ingredient Faker
+gem 'faker'
