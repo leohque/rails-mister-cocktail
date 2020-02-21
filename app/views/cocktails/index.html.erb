@@ -1,8 +1,19 @@
-<% @cocktails.each do |cocktail| %>
-  <% if cocktail.photo.attached? %>
-    <p><%= cl_image_tag cocktail.photo.key, height: 300, crop: :fit %>
+<div class="d-flex flex-wrap justify-content-center align-items-center m-3">
+  <% @cocktails.each do |cocktail| %>
+  <div class="card m-3 rounded shadow" style="width: 300px;">
+    <% if cocktail.photo.attached? %>
+      <%= link_to cocktail_path(cocktail) do %>
+        <%= cl_image_tag cocktail.photo.key, width: 300, crop: :scale %>
+      <% end %>
+    <% end %>
+    <div class="card-body">
+      <p class="card-text"><%= link_to cocktail.name, cocktail_path(cocktail) %></p>
+    </div>
+  </div>
   <% end %>
-  <%= link_to cocktail.name, cocktail_path(cocktail) %></p>
-<% end %>
+</div>
 
-<%= link_to "New Cocktail", new_cocktail_path, class: 'btn btn-primary' %>
+
+<div class="container text-center">
+  <%= link_to "New Juice", new_cocktail_path, class: 'btn btn-primary mb-5' %>
+</div>

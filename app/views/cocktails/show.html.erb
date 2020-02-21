@@ -1,14 +1,22 @@
-<h2><%= @cocktail.name %></h2>
-<% if @cocktail.photo.attached? %>
-  <%= cl_image_tag @cocktail.photo.key, height: 300, crop: :fit %>
-<% end %>
-<h4>Doses:</h4>
-<ul>
-  <% @doses.each do |dose| %>
-    <li><%= Ingredient.find(dose.ingredient_id).name %>: <%= dose.description %> <%= link_to "Delete", dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } %></li>
-  <% end %>
-</ul>
+<div class="container d-flex justify-content-center align-items-center">
+  <% if @cocktail.photo.attached? %>
+      <%= cl_image_tag @cocktail.photo.key, width: 300, crop: :scale %>
+    <% end %>
+  <div class="container">
+    <h2><%= @cocktail.name %></h2>
 
-<%= link_to "Add Dose", new_cocktail_dose_path(@cocktail) %>
+    <h4>Doses:</h4>
+    <ul>
+      <% @doses.each do |dose| %>
+        <li><%= Ingredient.find(dose.ingredient_id).name %>: <%= dose.description %> <%= link_to "Delete", dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } %></li>
+      <% end %>
+    </ul>
 
-<p><%= link_to "Back to All Cocktails", cocktails_path %></p>
+    <%= link_to new_cocktail_dose_path(@cocktail) do %>
+      <%= icon('fas', 'plus') %> Add ingredient
+    <% end %><br>
+    <%= link_to cocktails_path do %>
+      <%= icon('fa', 'undo')%> Back to All
+    <% end %>
+  </div>
+</div>
